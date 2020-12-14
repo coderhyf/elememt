@@ -2,12 +2,37 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 Vue.use (VueRouter)
-
 const routes = [
   {
     path: '/',
-    name: 'index',
-    component: () => import('../views/Index')
+    // name: 'index',
+    component: () => import('../views/Index'),
+    children:[
+      {
+        path:'',
+        redirect:'/home'
+      },
+      {
+        path:'/home',
+        name:'home',
+        component: ()=> import('../views/home/Home')
+      },
+      {
+        path:'/order',
+        name:'order',
+        component: ()=> import('../views/order/Order')
+      },
+      {
+        path:'/me',
+        name:'me',
+        component: ()=> import('../views/me/Me')
+      },
+      {
+        path: '/address',
+        name: 'addRess',
+        component: () => import('../views/address/addRess')
+      }
+    ]
   },
   {
     path: '/longin',
@@ -16,7 +41,7 @@ const routes = [
   },
   // {
   //   path: '*',
-  //   redirect: {name: 'index'}
+  //   redirect: '/longin'
   // }
 ]
 
