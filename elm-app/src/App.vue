@@ -26,7 +26,6 @@ export default {
 
         function onComplete (data) {
           // data是具体的定位信息
-          console.log (data);
           self.$store.dispatch ('setLocation', data);
           self.$store.dispatch ('setAddress', data.formattedAddress)
         }
@@ -55,7 +54,6 @@ export default {
               geocoder.getAddress (lnglat, function (status, data) {
                 if (status === 'complete' && data.info === 'OK') {
                   // result为对应的地理位置详细信息
-                  console.log (data)
                   self.$store.dispatch ('setLocation', {
                     addressComponent: {
                       city: result.city,

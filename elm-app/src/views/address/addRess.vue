@@ -3,14 +3,22 @@
     <Header :is-left="true" title="选择收货地址"/>
     <div class="city_search">
       <div class="search">
-        <span class="city">
+        <span class="city" @click="$router.push('/city')">
           {{ city }}
           <i class="fa fa-angle-down"></i>
         </span>
         <i class="fa fa-search"></i>
         <input type="text" v-model="search_value" placeholder="小区/写字楼/学校">
       </div>
-      <location :address="address"/>
+      <location @click="seleteAddress" :address="address"/>
+    </div>
+    <div class="area">
+      <ul class="area_list" v-for="(item,index) in cityTips" :key="index">
+        <li @click="seleteAddress(item)">
+          <h4>{{ item.name }}</h4>
+          <p>{{ item.district }}{{ item.address }}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -28,7 +36,8 @@ export default {
   data () {
     return {
       city: '', // 当前的城市
-      search_value: ''
+      search_value: '',
+      cityTips: [],
     }
   },
 
@@ -43,19 +52,32 @@ export default {
     }
   },
   methods: {
+    // 高德地图
     searchPlace () {
       const self = this;
-      AMap.plugin ('AMap.Geocoder', function () {
+      AMap.plugin ('AMap.Autocomplete', function () {
+        // 实例化Autocomplete
         const autoOptions = {
+          //city 限定城市，默认全国
           city: self.city
-        };
-        const autoComLete = new AMap.Autocomplete (autoOptions);
-        autoComplete.search (self.search_val, function (status, result) {
+        }
+        const autoComplete = new AMap.Autocomplete (autoOptions);
+        autoComplete.search (self.search_value, function (status, result) {
           // 搜索成功时，result即是对应的匹配数据
-          // console.log(result);
-          self.areaList = result.tips;
-        });
+          self.cityTips = result.tips;
+        })
       })
+    },
+    // 设置地址
+    seleteAddress (item) {
+      if (item) {
+        this.$store.dispatch ('setAddress', item.district + item.address + item.name);
+      } else {
+        this.$store.dispatch ('setAddress', this.address);
+      }
+
+      // 跳转home
+      this.$router.push ('/home')
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -107,10 +129,15 @@ export default {
   background: #fff;
 }
 
+ul {
+  list-style: none;
+}
+
 .area li {
   border-bottom: 1px solid #eee;
   padding: 8px 16px;
   color: #aaa;
+  height: 30px;
 }
 
 .area li h4 {

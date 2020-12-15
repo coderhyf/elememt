@@ -1,6 +1,6 @@
 <template>
   <div class="title">当前定位
-  <div class="des">
+  <div class="des" @click="$emit('click')">
     <i class="fa fa-location-arrow"></i>
     <span>{{address}}</span>
   </div>
