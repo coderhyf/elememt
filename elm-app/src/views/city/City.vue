@@ -7,7 +7,7 @@
       </div>
       <a @click="$router.push({name:'addRess',params:{city:city}})">取消</a>
     </div>
-    <div v-if="searchList.length === 0">
+    <div style="height: 100%" v-if="searchList.length === 0">
       <div class="location">
         <location @click="selectCity({name:city})" :address="city"/>
       </div>
@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import Location from "../../components/Location/Location";
-import Alphabet from "../../components/alphabet/Alphabet";
+import Location from "components/Location/Location";
+import Alphabet from "components/alphabet/Alphabet";
 
 export default {
   name: "City",
@@ -52,9 +52,9 @@ export default {
         this.keys.pop ();
         // keys排序
         this.keys.sort ();
-        // this.$nextTick (() => {
-        //   this.$refs.allcity.initScroll ();
-        // });
+        this.$nextTick (() => {
+          this.$refs.allcity.initScroll ();
+        });
         // 存储所以key
         this.keys.forEach (key => {
           this.cityInfo[key].forEach (city => {
@@ -150,10 +150,12 @@ export default {
 ul {
   list-style: none;
 }
+
 .search_list {
   background: #fff;
   padding: 5px 16px;
 }
+
 .search_list li {
   padding: 10px;
   border-bottom: 1px solid #eee;

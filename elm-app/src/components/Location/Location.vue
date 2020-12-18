@@ -33,5 +33,6 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-top: 10px;
 }
 </style>

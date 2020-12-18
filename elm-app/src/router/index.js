@@ -44,10 +44,11 @@ const routes = [
     name: 'Longin',
     component: () => import('../views/Longin')
   },
-  // {
-  //   path: '*',
-  //   redirect: '/longin'
-  // }
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('../views/search/Search')
+  }
 ]
 
 const router = new VueRouter ({

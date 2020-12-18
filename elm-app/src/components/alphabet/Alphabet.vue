@@ -59,16 +59,16 @@ export default {
   mounted () {
   },
   methods: {
-    // initScroll () {
-    //   this.scroll = new BScroll (this.$refs.area_scroll, {
-    //     click: true
-    //   });
-    // },
-    // seleteKey (index) {
-    //   const cityList = this.$refs.area_scroll.getElementsByClassName ('citylist');
-    //   let el = cityList[index]
-    //   // this.scroll.scrollToElement(el,250)
-    // },
+    initScroll () {
+      this.scroll = new BScroll (this.$refs.area_scroll, {
+        click: true
+      });
+    },
+    seleteKey (index) {
+      const cityList = this.$refs.area_scroll.getElementsByClassName ('citylist');
+      let el = cityList[index]
+      this.scroll.scrollToElement(el,250)
+    },
   }
 }
 </script>
