@@ -9,7 +9,8 @@ module.exports = {
       // 配置跨域
       '/api': {
         // target: 'https://eleme1-october.herokuapp.com/api/',
-        target: 'https://eleme2-october.herokuapp.com/api/',
+        // target: 'https://eleme2-october.herokuapp.com/api/',
+        target: 'https://eleme3-october.herokuapp.com/api/',
         // target: 'https://ele-interface.herokuapp.com/api/',
         // target: 'https://eleme1-gorge-61965.herokuapp.com/api/',
         ws: true,

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {LENGTH, CLS_ON, CLS_HALF, CLS_OFF} from "../../constant/constant";
+import {LENGTH, CLS_ON, CLS_HALF, CLS_OFF} from "@/constant/constant";
 
 export default {
   name: "Rating",
