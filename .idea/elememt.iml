@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="superMall" />
+    <orderEntry type="module" module-name="app" />
   </component>
 </module>

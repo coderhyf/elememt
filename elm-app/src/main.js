@@ -5,7 +5,11 @@ import store from './store';
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import 'normalize.css/normalize.css';
+import 'lib-flexible/flexible';
 import axios from 'axios';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 import {Indicator, Swipe, SwipeItem, } from 'mint-ui';
 
 Vue.use (MintUI)

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../未命名文件夹/app/.idea/app.iml" filepath="$PROJECT_DIR$/../未命名文件夹/app/.idea/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/elememt.iml" filepath="$PROJECT_DIR$/.idea/elememt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../superMall/.idea/superMall.iml" filepath="$PROJECT_DIR$/../superMall/.idea/superMall.iml" />
     </modules>
   </component>
 </project>
